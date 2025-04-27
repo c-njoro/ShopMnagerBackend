@@ -3,8 +3,65 @@ const Order = require("../models/order.model");
 //create an order
 const createOrder = async (req, res) => {
   try {
-    const newOrder = await Order.create(req.body);
-    res.status(200).json(newOrder);
+    const { products, seller } = req.body;
+
+    // Validate that products exist and are not empty
+    if (!products || !Array.isArray(products) || products.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "Products are required to create an order." });
+    }
+
+    // Validate seller info
+    if (!seller || !seller.id || !seller.name) {
+      return res
+        .status(400)
+        .json({ message: "Seller information is required." });
+    }
+
+    //clean the products before saving
+    const cleanedProducts = products.map((product) => {
+      if (
+        !product.productId ||
+        !product.productName ||
+        !product.unitPrice ||
+        !product.quantity
+      ) {
+        throw new Error(
+          "Each product must have productId, productName, unitPrice, and quantity."
+        );
+      }
+
+      return {
+        productId: product.productId,
+        productName: product.productName.trim(),
+        quantity: product.quantity,
+        unitPrice: product.unitPrice,
+        // No totalPrice here, it will be auto-calculated
+      };
+    });
+
+    // Create a new order instance
+    const newOrder = new Order({
+      products: cleanedProducts,
+      seller: {
+        id: seller.id,
+        name: seller.name.trim(),
+      },
+      // No totalAmount here, it will be auto-calculated in middleware
+    });
+
+    const savedOrder = await newOrder.save();
+
+    //to add the order to the seller's orders array
+    // await User.findByIdAndUpdate(savedOrder.seller.id, {
+    //   $push: { orders: savedOrder._id }
+    // });
+
+    res.status(201).json({
+      message: "Order created successfully!",
+      order: savedOrder,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

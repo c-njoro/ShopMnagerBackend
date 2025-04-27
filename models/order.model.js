@@ -6,32 +6,42 @@ const orderSchema = new mongoose.Schema(
   {
     products: [
       {
-        product: {
+        productId: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "Product",
           required: true,
+        },
+        productName: {
+          type: String,
+          required: true,
+          trim: true,
         },
         quantity: {
           type: Number,
           required: true,
           min: 1,
         },
-        priceAtSale: {
+        unitPrice: {
           type: Number,
           required: true,
+          min: 0,
+        },
+        totalPrice: {
+          type: Number,
+
           min: 0,
         },
       },
     ],
     totalAmount: {
       type: Number,
-      required: true,
+
       min: 0,
     },
     seller: {
       id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User", // Assuming you have a User model for your sellers
+        ref: "User",
         required: true,
       },
       name: {
@@ -46,8 +56,20 @@ const orderSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // for createdAt and updatedAt
+    timestamps: true,
   }
 );
+
+orderSchema.pre("save", function (next) {
+  let totalAmount = 0;
+
+  this.products.forEach((product) => {
+    product.totalPrice = product.unitPrice * product.quantity;
+    totalAmount += product.totalPrice;
+  });
+
+  this.totalAmount = totalAmount;
+  next();
+});
 
 module.exports = mongoose.model("Order", orderSchema);
