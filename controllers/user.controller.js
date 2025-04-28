@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 //create user
@@ -180,6 +181,7 @@ const loginUser = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Server error", error: `${error}` });
+    console.log(error);
   }
 };
 

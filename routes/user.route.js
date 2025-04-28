@@ -10,10 +10,14 @@ const {
   getOne,
   findViaEmail,
   changePassword,
+  loginUser,
 } = require("../controllers/user.controller");
 
 //create user
 router.post("/create", createUser);
+
+//login user
+router.post("/login", loginUser);
 
 //updating user
 router.put("/update/:id", updateUser);
