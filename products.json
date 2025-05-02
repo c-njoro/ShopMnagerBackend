@@ -1,0 +1,274 @@
+[
+  {
+    "name": "Non-Stick Frying Pan",
+    "description": "Durable non-stick pan for everyday frying.",
+    "category": "Utensil",
+    "price": 950,
+    "discount": 10,
+    "quantity": 50,
+    "unit": "pieces",
+    "size": "Medium",
+    "color": "Black",
+    "material": "Aluminum",
+    "brand": "PanPro",
+    "customAttributes": {
+      "handle": "Heat-resistant",
+      "diameter": "28cm"
+    }
+  },
+  {
+    "name": "Plastic Water Jug",
+    "description": "A clear plastic jug with a lid for home use.",
+    "category": "Plastic",
+    "price": 180,
+    "discount": 0,
+    "quantity": 75,
+    "unit": "pieces",
+    "size": "2L",
+    "color": "Transparent",
+    "material": "Plastic",
+    "brand": "HydroJug",
+    "customAttributes": {
+      "capacity": "2 liters",
+      "lid": "Flip-top"
+    }
+  },
+  {
+    "name": "Kids' School Uniform Set",
+    "description": "Includes shirt, trousers, and sweater.",
+    "category": "Clothing",
+    "price": 1500,
+    "discount": 8,
+    "quantity": 35,
+    "unit": "sets",
+    "size": "Small",
+    "color": "Navy Blue",
+    "material": "Cotton Blend",
+    "brand": "EduWear",
+    "customAttributes": {
+      "pieces": "3",
+      "fit": "Regular"
+    }
+  },
+  {
+    "name": "Sports Running Shoes",
+    "description": "Comfortable and lightweight running shoes.",
+    "category": "Shoe",
+    "price": 2800,
+    "discount": 12,
+    "quantity": 45,
+    "unit": "pairs",
+    "size": "44",
+    "color": "Grey",
+    "material": "Mesh",
+    "brand": "FastTrack",
+    "customAttributes": {
+      "sole": "Rubber",
+      "cushioning": "Foam"
+    }
+  },
+  {
+    "name": "Notebook Set - A5",
+    "description": "Set of 5 ruled A5 notebooks.",
+    "category": "Stationery",
+    "price": 350,
+    "discount": 0,
+    "quantity": 100,
+    "unit": "sets",
+    "size": "A5",
+    "color": "Multicolor",
+    "material": "Paper",
+    "brand": "NoteMate",
+    "customAttributes": {
+      "pages": "120 each",
+      "binding": "Spiral"
+    }
+  },
+  {
+    "name": "Plastic Bucket with Handle",
+    "description": "Strong bucket with easy grip handle.",
+    "category": "Plastic",
+    "price": 270,
+    "discount": 5,
+    "quantity": 80,
+    "unit": "pieces",
+    "size": "20L",
+    "color": "Red",
+    "material": "Plastic",
+    "brand": "UtilityPro",
+    "customAttributes": {
+      "capacity": "20 liters",
+      "handle": "Plastic grip"
+    }
+  },
+  {
+    "name": "Ladies Handbag",
+    "description": "Stylish handbag with multiple compartments.",
+    "category": "Other",
+    "price": 2200,
+    "discount": 10,
+    "quantity": 40,
+    "unit": "pieces",
+    "size": "Medium",
+    "color": "Brown",
+    "material": "PU Leather",
+    "brand": "Eleganza",
+    "customAttributes": {
+      "pockets": "5",
+      "strap": "Adjustable"
+    }
+  },
+  {
+    "name": "Men's Dress Shirt",
+    "description": "Formal long-sleeve shirt for men.",
+    "category": "Clothing",
+    "price": 950,
+    "discount": 5,
+    "quantity": 60,
+    "unit": "pieces",
+    "size": "Large",
+    "color": "Sky Blue",
+    "material": "Cotton",
+    "brand": "UrbanFit",
+    "customAttributes": {
+      "collar": "Pointed",
+      "sleeve": "Long"
+    }
+  },
+  {
+    "name": "Pencil Pack",
+    "description": "Pack of 12 HB pencils for writing and drawing.",
+    "category": "Stationery",
+    "price": 100,
+    "discount": 0,
+    "quantity": 150,
+    "unit": "packets",
+    "size": "Standard",
+    "color": "Yellow",
+    "material": "Wood",
+    "brand": "Graphico",
+    "customAttributes": {
+      "hardness": "HB",
+      "sharpened": "Yes"
+    }
+  },
+  {
+    "name": "Socks Pair",
+    "description": "Comfortable cotton socks for daily wear.",
+    "category": "Clothing",
+    "price": 150,
+    "discount": 0,
+    "quantity": 90,
+    "unit": "pairs",
+    "size": "Free Size",
+    "color": "Black",
+    "material": "Cotton",
+    "brand": "SoftStep",
+    "customAttributes": {
+      "length": "Ankle",
+      "elastic": "High"
+    }
+  },
+  {
+    "name": "Stainless Steel Cooking Pot",
+    "description": "A high-quality steel pot for cooking.",
+    "category": "Utensil",
+    "price": 1200,
+    "discount": 10,
+    "quantity": 40,
+    "unit": "pieces",
+    "size": "Medium",
+    "color": "Silver",
+    "material": "Stainless Steel",
+    "brand": "ChefMate",
+    "customAttributes": {
+      "diameter": "30cm",
+      "lid": "Included"
+    }
+  },
+  {
+    "name": "Plastic Storage Container",
+    "description": "Durable container for kitchen storage.",
+    "category": "Plastic",
+    "price": 300,
+    "discount": 5,
+    "quantity": 60,
+    "unit": "pieces",
+    "size": "Large",
+    "color": "Transparent",
+    "material": "Plastic",
+    "brand": "StoreIt",
+    "customAttributes": {
+      "capacity": "5L",
+      "lockType": "Snap-on lid"
+    }
+  },
+  {
+    "name": "Men's Leather Shoes",
+    "description": "Formal leather shoes for men.",
+    "category": "Shoe",
+    "price": 2500,
+    "discount": 15,
+    "quantity": 30,
+    "unit": "pairs",
+    "size": "42",
+    "color": "Black",
+    "material": "Leather",
+    "brand": "Stride",
+    "customAttributes": {
+      "type": "Oxford",
+      "sole": "Rubber"
+    }
+  },
+  {
+    "name": "Women's Cotton T-Shirt",
+    "description": "Comfortable cotton t-shirt for women.",
+    "category": "Clothing",
+    "price": 800,
+    "discount": 0,
+    "quantity": 100,
+    "unit": "pieces",
+    "size": "Medium",
+    "color": "White",
+    "material": "Cotton",
+    "brand": "ComfyWear",
+    "customAttributes": {
+      "neck": "Round",
+      "sleeves": "Short"
+    }
+  },
+  {
+    "name": "Ballpoint Pens Pack",
+    "description": "Pack of 10 blue ballpoint pens.",
+    "category": "Stationery",
+    "price": 120,
+    "discount": 0,
+    "quantity": 200,
+    "unit": "packets",
+    "size": "Standard",
+    "color": "Blue",
+    "material": "Plastic",
+    "brand": "QuickWrite",
+    "customAttributes": {
+      "inkColor": "Blue",
+      "tipSize": "0.7mm"
+    }
+  },
+  {
+    "name": "Assorted Gift Wrap Set",
+    "description": "Colorful gift wraps for all occasions.",
+    "category": "Other",
+    "price": 250,
+    "discount": 5,
+    "quantity": 80,
+    "unit": "sets",
+    "size": "A2",
+    "color": "Multi-color",
+    "material": "Paper",
+    "brand": "WrapIt",
+    "customAttributes": {
+      "sheets": "10",
+      "patterns": "Mixed"
+    }
+  }
+]

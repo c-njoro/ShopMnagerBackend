@@ -35,13 +35,23 @@ const orderSchema = new mongoose.Schema(
     ],
     totalAmount: {
       type: Number,
-
       min: 0,
     },
     seller: {
       id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+    },
+    customer: {
+      phone: {
+        type: Number,
         required: true,
       },
       name: {
