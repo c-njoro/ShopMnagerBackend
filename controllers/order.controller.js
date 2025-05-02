@@ -3,7 +3,7 @@ const Order = require("../models/order.model");
 //create an order
 const createOrder = async (req, res) => {
   try {
-    const { products, seller } = req.body;
+    const { products, seller, customer } = req.body;
 
     // Validate that products exist and are not empty
     if (!products || !Array.isArray(products) || products.length === 0) {
@@ -19,49 +19,17 @@ const createOrder = async (req, res) => {
         .json({ message: "Seller information is required." });
     }
 
-    //clean the products before saving
-    const cleanedProducts = products.map((product) => {
-      if (
-        !product.productId ||
-        !product.productName ||
-        !product.unitPrice ||
-        !product.quantity
-      ) {
-        throw new Error(
-          "Each product must have productId, productName, unitPrice, and quantity."
-        );
-      }
+    if (!customer || !customer.phone || !customer.name) {
+      return res
+        .status(400)
+        .json({ message: "Customer information is required." });
+    }
 
-      return {
-        productId: product.productId,
-        productName: product.productName.trim(),
-        quantity: product.quantity,
-        unitPrice: product.unitPrice,
-        // No totalPrice here, it will be auto-calculated
-      };
-    });
-
-    // Create a new order instance
-    const newOrder = new Order({
-      products: cleanedProducts,
-      seller: {
-        id: seller.id,
-        name: seller.name.trim(),
-      },
-      // No totalAmount here, it will be auto-calculated in middleware
-    });
-
+    //save the order with the req.body data without adding date it will be added on the schema by default
+    const newOrder = new Order(req.body);
     const savedOrder = await newOrder.save();
-
-    //to add the order to the seller's orders array
-    // await User.findByIdAndUpdate(savedOrder.seller.id, {
-    //   $push: { orders: savedOrder._id }
-    // });
-
-    res.status(201).json({
-      message: "Order created successfully!",
-      order: savedOrder,
-    });
+    res.status(201).json(savedOrder);
+    console.log("Order created successfully: ");
   } catch (error) {
     res.status(500).json({ message: error.message });
     console.log("Errro creating order: ", error);
