@@ -73,27 +73,35 @@ const deleteOrder = async (req, res) => {
 //get all orders
 const getAllOrders = async (req, res) => {
   try {
-    const { waiter, table, orderStatus, paymentStatus } = req.query;
+    const { orderedAt, orderedAt_gte, orderedAt_lte, sellerName } = req.query;
     const query = {};
 
-    //filter by name
-    if (table) {
-      query.table = { $regex: table, $options: "i" };
+    // Filter by seller name
+    if (sellerName) {
+      query["seller.name"] = { $regex: sellerName, $options: "i" }; // Case-insensitive partial match
     }
 
-    //by waiter id
-    if (waiter) {
-      query.waiter = { $regex: waiter, $options: "i" }; // Use regex for partial matching
+    // Filter by specific date
+    if (orderedAt) {
+      query.orderedAt = {
+        $eq: new Date(orderedAt), // Match the exact date
+      };
     }
 
-    //by order status
-    if (orderStatus) {
-      query.orderStatus = { $regex: orderStatus, $options: "i" };
+    // Filter by date range (start date)
+    if (orderedAt_gte) {
+      query.orderedAt = {
+        ...query.orderedAt,
+        $gte: new Date(orderedAt_gte), // Greater than or equal to the start date
+      };
     }
 
-    //by payment status
-    if (paymentStatus) {
-      query.paymentStatus = { $regex: paymentStatus, $options: "i" };
+    // Filter by date range (end date)
+    if (orderedAt_lte) {
+      query.orderedAt = {
+        ...query.orderedAt,
+        $lte: new Date(orderedAt_lte), // Less than or equal to the end date
+      };
     }
 
     const orders = await Order.find(query).sort({ dateCreated: -1 });
