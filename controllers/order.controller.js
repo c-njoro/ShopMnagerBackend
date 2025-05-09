@@ -1,4 +1,5 @@
 const Order = require("../models/order.model");
+const User = require("../models/user.model");
 
 //create an order
 const createOrder = async (req, res) => {
@@ -28,6 +29,16 @@ const createOrder = async (req, res) => {
     //save the order with the req.body data without adding date it will be added on the schema by default
     const newOrder = new Order(req.body);
     const savedOrder = await newOrder.save();
+
+    // Find the user by seller.id and push the new order's ID into their orders array
+    const user = await User.findById(seller.id);
+    if (!user) {
+      return res.status(404).json({ message: "Seller not found" });
+    }
+
+    user.orders.push(savedOrder._id); // Push the new order ID into the user's orders array
+    await user.save(); // Save the updated user document
+
     res.status(201).json(savedOrder);
     console.log("Order created successfully: ");
   } catch (error) {
@@ -104,7 +115,7 @@ const getAllOrders = async (req, res) => {
       };
     }
 
-    const orders = await Order.find(query).sort({ dateCreated: -1 });
+    const orders = await Order.find(query).sort({ orderedAt: -1 });
     res.status(200).json(orders);
   } catch (error) {
     res.status(500).json({ message: error.message });
